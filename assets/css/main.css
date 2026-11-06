@@ -2853,3 +2853,43 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/*--------------------------------------------------------------
+# Service Extra Section (kainos, sąrašai, medija)
+--------------------------------------------------------------*/
+.service-extra h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.service-extra .price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface-color);
+}
+
+.service-extra .price-table th,
+.service-extra .price-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+}
+
+.service-extra .price-table th {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-family: var(--heading-font);
+}
+
+.service-extra .media-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.service-extra .media-credit {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
