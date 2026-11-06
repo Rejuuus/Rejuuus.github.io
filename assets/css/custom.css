@@ -1,0 +1,632 @@
+/*--------------------------------------------------------------
+# Rėjaus Bertašiaus CV svetainės stiliai (įkeliama po main.css)
+#
+# 1. Spalvos ir šriftai
+# 2. Tipografija
+# 3. Mygtukai
+# 4. Nuorodos
+# 5. Išdėstymas ir tarpai
+# 6. Turinio blokai
+# 7. Komponentai: navigacija, progreso juostos, „į viršų“ mygtukas
+# 8. Sąrašai
+# 9. Lentelė ir medija
+--------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/*--------------------------------------------------------------
+# 1. Spalvos ir šriftai
+--------------------------------------------------------------*/
+:root {
+  --default-font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --heading-font: "Space Grotesk", sans-serif;
+  --nav-font: "IBM Plex Mono", monospace;
+  --mono-font: "IBM Plex Mono", monospace;
+
+  --background-color: #0c1417;
+  --default-color: #e6f0ed;
+  --heading-color: #f4fbf8;
+  --accent-color: #2dd4a7;
+  --surface-color: #132126;
+
+  --nav-color: #e6f0ed;
+  --nav-hover-color: #ffd166;
+
+  --amber-color: #ffd166;
+  --on-accent-color: #06201a;
+  --line-color: #27403f;
+  --block-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/*--------------------------------------------------------------
+# 2. Tipografija
+--------------------------------------------------------------*/
+body {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em;
+}
+
+h1,
+.hero .hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+h2,
+.section-title h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 2px;
+  background: var(--amber-color);
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+h5,
+.resume .resume-item article h5 {
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--amber-color);
+  background: rgba(255, 209, 102, 0.1);
+}
+
+h6 {
+  font-family: var(--mono-font);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero .hero-content h2 {
+  font-family: var(--mono-font);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--default-color);
+}
+
+.hero .hero-content h1 .highlight,
+.hero .hero-content h2 .typed {
+  color: var(--accent-color);
+}
+
+.about .intro-content .headline {
+  font-weight: 600;
+  font-size: clamp(26px, 3.4vw, 38px);
+  color: var(--heading-color);
+}
+
+.about .intro-content .eyebrow {
+  font-family: var(--mono-font);
+  color: var(--amber-color);
+}
+
+.resume .resume-item .resume-title {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+p,
+.hero .hero-content p,
+.section-title p {
+  color: #cfdcd8;
+  line-height: 1.75;
+}
+
+.about .intro-content .lead {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--default-color);
+  padding-left: 16px;
+  border-left: 3px solid var(--accent-color);
+}
+
+.skills .skill-box p {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# 3. Mygtukai
+--------------------------------------------------------------*/
+.hero .hero-actions .btn,
+.about .intro-content .cta-group .btn-ghost,
+.contact .contact-form .btn {
+  padding: 12px 22px;
+  font-family: var(--mono-font);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 2px solid var(--accent-color);
+  border-radius: 6px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.hero .hero-actions .btn.btn-primary,
+.contact .contact-form .btn {
+  color: var(--on-accent-color);
+  background: var(--accent-color);
+  box-shadow: 4px 4px 0 var(--amber-color);
+}
+
+.hero .hero-actions .btn.btn-outline,
+.about .intro-content .cta-group .btn-ghost {
+  color: var(--accent-color);
+  background: transparent;
+  box-shadow: 4px 4px 0 var(--line-color);
+}
+
+.hero .hero-actions .btn.btn-primary:hover,
+.hero .hero-actions .btn.btn-outline:hover,
+.about .intro-content .cta-group .btn-ghost:hover,
+.about .intro-content .cta-group .btn-ghost:focus,
+.contact .contact-form .btn:hover {
+  color: var(--on-accent-color);
+  background: var(--amber-color);
+  border-color: var(--amber-color);
+  box-shadow: 6px 6px 0 var(--accent-color);
+  transform: translate(-2px, -2px);
+}
+
+.hero .hero-actions .btn.btn-primary:active,
+.hero .hero-actions .btn.btn-outline:active,
+.about .intro-content .cta-group .btn-ghost:active,
+.contact .contact-form .btn:active {
+  color: var(--on-accent-color);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 var(--accent-color);
+  transform: translate(4px, 4px);
+}
+
+.portfolio .portfolio-filters li {
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid var(--line-color);
+  color: var(--default-color);
+  background-color: var(--surface-color);
+}
+
+.portfolio .portfolio-filters li:hover {
+  color: var(--amber-color);
+  border-color: var(--amber-color);
+  background-color: var(--surface-color);
+}
+
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--on-accent-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.portfolio .portfolio-card .portfolio-img .portfolio-overlay a {
+  color: var(--on-accent-color);
+  border-radius: 8px;
+}
+
+/*--------------------------------------------------------------
+# 4. Nuorodos
+--------------------------------------------------------------*/
+a:hover {
+  color: var(--amber-color);
+}
+
+main p a,
+.credits a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(45, 212, 167, 0.45);
+  text-underline-offset: 4px;
+}
+
+main p a:hover,
+.credits a:hover {
+  color: var(--amber-color);
+  text-decoration-color: var(--amber-color);
+}
+
+.about .intro-content .cta-group .link-underline {
+  text-decoration: none;
+}
+
+.about .intro-content .cta-group .link-underline::after {
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(1);
+}
+
+.about .intro-content .cta-group .link-underline:hover {
+  color: var(--amber-color);
+}
+
+.about .intro-content .cta-group .link-underline:hover::after {
+  background: var(--amber-color);
+}
+
+.hero .social-links a:hover,
+.services .service-item:hover .service-icon {
+  color: var(--on-accent-color);
+}
+
+/*--------------------------------------------------------------
+# 5. Išdėstymas ir tarpai
+--------------------------------------------------------------*/
+.section-title {
+  padding-bottom: 40px;
+}
+
+/* Apie */
+.about.section {
+  padding: 90px 0 30px;
+}
+
+.about .intro-content .lead {
+  margin-bottom: 28px;
+}
+
+.about .intro-content .cta-group {
+  margin-top: 32px;
+}
+
+.skills.section {
+  padding: 50px 0 100px;
+}
+
+.skills .skill-box {
+  padding: 2.25rem 1.75rem;
+}
+
+/* Patirtis */
+.resume.section {
+  padding: 90px 0 100px;
+}
+
+.resume .resume-item {
+  margin-bottom: 3.5rem;
+}
+
+.resume .resume-item article {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.resume .resume-item article::before {
+  left: -2.05rem;
+  top: 1.6rem;
+  border-radius: 3px;
+  background: var(--amber-color);
+  border-color: var(--amber-color);
+}
+
+/* Atlikti darbai */
+.portfolio.section {
+  padding: 90px 0 80px;
+}
+
+.portfolio .portfolio-filters {
+  margin-bottom: 44px;
+}
+
+.portfolio .portfolio-card {
+  margin-bottom: 16px;
+}
+
+.portfolio .portfolio-card .portfolio-info {
+  padding: 24px 24px 20px;
+}
+
+/*--------------------------------------------------------------
+# 6. Turinio blokai
+--------------------------------------------------------------*/
+.skills .skill-box,
+.resume .resume-item article,
+.services .service-item,
+.portfolio .portfolio-card,
+.contact .info-box,
+.contact .contact-form {
+  background-color: var(--surface-color);
+  border: 1px solid var(--line-color);
+  border-radius: 14px;
+  box-shadow: var(--block-shadow);
+}
+
+.services .service-item:hover,
+.skills .skill-box:hover,
+.portfolio .portfolio-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.hero .hero-image .image-wrapper img,
+.about .profile-figure .profile-photo {
+  border: 1px solid var(--line-color);
+  border-radius: 14px;
+  box-shadow: 10px 10px 0 rgba(45, 212, 167, 0.18);
+}
+
+.hero .hero-image .floating-elements .floating-card {
+  border: 1px solid var(--line-color);
+  border-radius: 10px;
+  box-shadow: var(--block-shadow);
+}
+
+.services .service-icon {
+  border-radius: 10px;
+}
+
+.contact .info-box h3 {
+  color: var(--accent-color);
+}
+
+.portfolio .portfolio-card .portfolio-tags span {
+  border-radius: 4px;
+  font-family: var(--mono-font);
+  font-size: 0.75rem;
+  color: var(--amber-color);
+  background: rgba(255, 209, 102, 0.1);
+}
+
+.contact .contact-form .form-control {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--line-color);
+  border-radius: 8px;
+}
+
+.contact .contact-form .form-control:focus {
+  border-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# 7. Komponentai: navigacija, progreso juostos, „į viršų“ mygtukas
+--------------------------------------------------------------*/
+/* Navigacijos juosta */
+.header,
+.scrolled .header {
+  --background-color: #0a1114;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--accent-color);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 1200px) {
+  .navmenu>ul>li {
+    padding: 10px 8px 10px 0;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+  }
+
+  .navmenu>ul>li>a:before {
+    display: none;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--amber-color);
+    background: rgba(255, 209, 102, 0.1);
+    border-color: rgba(255, 209, 102, 0.5);
+  }
+}
+
+/* Progreso juostos */
+.skills .skill-box .progress,
+.resume .skill-item .progress {
+  height: 12px;
+  padding: 2px;
+  background-color: #0a1114;
+  border: 1px solid var(--line-color);
+  border-radius: 4px;
+}
+
+.skills .skill-box .progress .progress-bar,
+.resume .skill-item .progress .progress-bar {
+  background-color: transparent;
+  background-image: linear-gradient(90deg, var(--accent-color), var(--amber-color));
+  border-radius: 2px;
+}
+
+.resume .skill-item .progress .progress-bar {
+  overflow: visible;
+}
+
+.resume .skill-item .progress .progress-bar::after {
+  font-family: var(--mono-font);
+  color: var(--amber-color);
+}
+
+/* „Į viršų“ mygtukas */
+.scroll-top {
+  width: 48px;
+  height: 48px;
+  background-color: var(--amber-color);
+  border: 2px solid var(--on-accent-color);
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-top i {
+  color: var(--on-accent-color);
+}
+
+.scroll-top:hover {
+  background-color: var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# 8. Sąrašai
+--------------------------------------------------------------*/
+.service-extra h3 {
+  margin-bottom: 16px;
+}
+
+.service-extra ul,
+.service-extra ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-extra ul>li,
+.service-extra ol>li {
+  position: relative;
+  padding: 6px 0 6px 34px;
+}
+
+/* Nenumeruotas sąrašas: rodyklė vietoj taško */
+.service-extra ul>li::before {
+  content: "▸";
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  color: var(--accent-color);
+}
+
+/* Įdėtinis sąrašas: šoninė linija ir brūkšnys */
+.service-extra ul ul {
+  margin-top: 8px;
+  padding: 4px 0 4px 6px;
+  border-left: 2px solid var(--amber-color);
+}
+
+.service-extra ul ul>li {
+  padding: 3px 0 3px 22px;
+  font-size: 0.92rem;
+  color: #cfdcd8;
+}
+
+.service-extra ul ul>li::before {
+  content: "–";
+  left: 6px;
+  top: 3px;
+  color: var(--amber-color);
+}
+
+/* Numeruotas sąrašas: skaitiklis */
+.service-extra ol {
+  counter-reset: etapas;
+}
+
+.service-extra ol>li {
+  padding-left: 44px;
+  counter-increment: etapas;
+}
+
+.service-extra ol>li::before {
+  content: counter(etapas);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 30px;
+  height: 30px;
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  color: var(--on-accent-color);
+  background: var(--accent-color);
+  border-radius: 6px;
+}
+
+/*--------------------------------------------------------------
+# 9. Lentelė ir medija
+--------------------------------------------------------------*/
+.service-extra .table-responsive {
+  border: 1px solid var(--line-color);
+  border-radius: 14px;
+  box-shadow: var(--block-shadow);
+}
+
+.service-extra .price-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface-color);
+}
+
+.service-extra .price-table th,
+.service-extra .price-table td {
+  padding: 14px 18px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.service-extra .price-table th {
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--on-accent-color);
+  background-color: var(--accent-color);
+}
+
+.service-extra .price-table tbody tr:nth-child(even) {
+  background-color: #1a2d33;
+}
+
+.service-extra .price-table tbody tr:hover {
+  background-color: rgba(255, 209, 102, 0.14);
+}
+
+.service-extra .price-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.service-extra .media-item,
+.service-extra .ratio {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--block-shadow);
+}
+
+.service-extra video.media-item {
+  height: auto;
+  border: 1px solid var(--line-color);
+}
+
+.service-extra .media-credit {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
