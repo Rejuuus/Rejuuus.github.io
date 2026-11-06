@@ -23,7 +23,7 @@
     <path d="M600 170V150H820"/>
     <path d="M170 250H90V340"/>
     <path d="M170 330H130L60 400"/>
-    <path d="M730 250H830V180"/>
+    <path d="M730 250H845V225"/>
     <path d="M730 330H800L850 380"/>
   </g>
   <g fill="#0a2a33" stroke="#d9a441" stroke-width="7">
@@ -33,7 +33,7 @@
     <circle cx="820" cy="150" r="13"/>
     <circle cx="90" cy="340" r="13"/>
     <circle cx="60" cy="400" r="13"/>
-    <circle cx="830" cy="180" r="13"/>
+    <circle cx="845" cy="225" r="13"/>
     <circle cx="850" cy="380" r="13"/>
   </g>
 
